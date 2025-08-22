@@ -16,6 +16,18 @@ const AppStyles = () => (
       overflow-x: hidden;
       background: #0a0a0a;
       color: #fff;
+
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --card-backdrop-filter: blur(20px);
+      --card-border: 1px solid rgba(218, 165, 32, 0.1);
+      --card-border-radius: 24px;
+      --card-border-color-hover: rgba(218, 165, 32, 0.3);
+      --card-shadow-hover: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(218, 165, 32, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      --card-transform-hover: translateY(-8px) scale(1.02);
+      --card-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Динамический фон с параллакс */
@@ -261,13 +273,13 @@ const AppStyles = () => (
 
     .category-card {
       position: relative;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.1);
-      border-radius: 24px;
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
+      border-radius: var(--card-border-radius);
       padding: 32px;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: var(--card-transition);
       overflow: hidden;
     }
 
@@ -287,12 +299,9 @@ const AppStyles = () => (
     }
 
     .category-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: rgba(218, 165, 32, 0.3);
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(218, 165, 32, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transform: var(--card-transform-hover);
+      border-color: var(--card-border-color-hover);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .category-card:hover::before {
@@ -325,9 +334,21 @@ const AppStyles = () => (
     }
 
     .category-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
       filter: drop-shadow(0 0 20px rgba(218, 165, 32, 0.3));
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .category-card:hover .category-icon {
+      transform: scale(1.1);
+    }
+
+    .category-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .category-title {
@@ -376,22 +397,22 @@ const AppStyles = () => (
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.2);
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
       color: #DAA520;
       padding: 12px 20px;
-      border-radius: 16px;
+      border-radius: var(--card-border-radius);
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: var(--card-transition);
       font-size: 0.95rem;
     }
 
     .back-button:hover {
       background: rgba(218, 165, 32, 0.1);
       transform: translateX(-4px);
-      border-color: rgba(218, 165, 32, 0.4);
+      border-color: var(--card-border-color-hover);
     }
 
     .back-arrow {
@@ -430,21 +451,19 @@ const AppStyles = () => (
 
     .product-card {
       position: relative;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.1);
-      border-radius: 20px;
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
+      border-radius: var(--card-border-radius);
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: var(--card-transition);
     }
 
     .product-card:hover {
-      transform: translateY(-12px);
-      border-color: rgba(218, 165, 32, 0.3);
-      box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 80px rgba(218, 165, 32, 0.2);
+      transform: var(--card-transform-hover);
+      border-color: var(--card-border-color-hover);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .product-image-wrapper {
@@ -624,11 +643,11 @@ const AppStyles = () => (
     .hero-image {
       width: 100%;
       height: 400px;
-      border-radius: 20px;
+      border-radius: var(--card-border-radius);
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.1);
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
     }
 
     .product-details-main {
@@ -664,10 +683,17 @@ const AppStyles = () => (
       justify-content: space-between;
       align-items: center;
       padding: 16px 20px;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.1);
-      border-radius: 12px;
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
+      border-radius: var(--card-border-radius);
+      transition: var(--card-transition);
+    }
+
+    .spec-card:hover {
+      transform: var(--card-transform-hover);
+      border-color: var(--card-border-color-hover);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .spec-label {
@@ -702,17 +728,18 @@ const AppStyles = () => (
       align-items: center;
       justify-content: space-between;
       padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(218, 165, 32, 0.1);
-      border-radius: 10px;
+      background: var(--card-bg);
+      backdrop-filter: var(--card-backdrop-filter);
+      border: var(--card-border);
+      border-radius: var(--card-border-radius);
       border-left: 3px solid #DAA520;
-      transition: all 0.3s ease;
+      transition: var(--card-transition);
     }
 
     .size-card:hover {
       background: rgba(218, 165, 32, 0.05);
-      transform: translateX(4px);
+      transform: translateY(-4px);
+      border-color: var(--card-border-color-hover);
     }
 
     .size-dimensions {
@@ -1043,6 +1070,14 @@ const App = () => {
   const categories = [...new Set(products.map(product => product.category))];
   const getProductsByCategory = (category) => products.filter(product => product.category === category);
 
+  const categoryIcons = {
+    'Стол островной': '/icons/stol.png',
+    'Стеллаж': '/icons/stelaj.png',
+    'Мойка для посуды': '/icons/moyka.png',
+    'Электроплита': '/icons/plita.png',
+    'Вытяжка': '/icons/vitejka.png',
+  };
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (appRef.current) {
@@ -1099,6 +1134,7 @@ const App = () => {
             categories={categories}
             onCategorySelect={(category) => navigate({ screen: 'products', category })}
             getProductsByCategory={getProductsByCategory}
+            categoryIcons={categoryIcons}
           />
         );
     }
@@ -1174,7 +1210,7 @@ const PremiumImage = ({ src, alt, className }) => {
   );
 };
 
-const CategoriesScreen = ({ categories, onCategorySelect, getProductsByCategory }) => (
+const CategoriesScreen = ({ categories, onCategorySelect, getProductsByCategory, categoryIcons }) => (
   <>
     <div className="hero-section">
       <div className="hero-content">
@@ -1200,11 +1236,7 @@ const CategoriesScreen = ({ categories, onCategorySelect, getProductsByCategory 
             <div className="card-background"></div>
             <div className="card-content">
               <div className="category-icon">
-                {category === 'Стол островной' && '🏭'}
-                {category === 'Стеллаж' && '📚'}
-                {category === 'Мойка для посуды' && '💧'}
-                {category === 'Электроплита' && '🔥'}
-                {category === 'Вытяжка' && '💨'}
+                <img src={categoryIcons[category]} alt={category} />
               </div>
               <h3 className="category-title">{category}</h3>
               <p className="category-count">{getProductsByCategory(category).length} моделей</p>
