@@ -1071,11 +1071,11 @@ const App = () => {
   const getProductsByCategory = (category) => products.filter(product => product.category === category);
 
   const categoryIcons = {
-    'Стол островной': '/icons/stol.png',
-    'Стеллаж': '/icons/stelaj.png',
-    'Мойка для посуды': '/icons/moyka.png',
-    'Электроплита': '/icons/plita.png',
-    'Вытяжка': '/icons/vitejka.png',
+    'Стол островной': `${process.env.PUBLIC_URL}/icons/stol.png`,
+    'Стеллаж': `${process.env.PUBLIC_URL}/icons/stelaj.png`,
+    'Мойка для посуды': `${process.env.PUBLIC_URL}/icons/moyka.png`,
+    'Электроплита': `${process.env.PUBLIC_URL}/icons/plita.png`,
+    'Вытяжка': `${process.env.PUBLIC_URL}/icons/vitejka.png`,
   };
 
   useEffect(() => {
